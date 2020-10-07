@@ -1,0 +1,17 @@
+#/usr/bin/git
+#
+# .gitignore
+#
+
+# Mac things
+*.DS_Store
+
+# Vim things
+*~
+*.swp
+
+# Python
+__pycache__/
+*.py[cod]
+*.py~
+.venv/
