@@ -214,11 +214,11 @@ Notes:
 
 
 class Production(Base):
-    '''Build report from monthly data report.'''
+    '''Fetch data, build email message, and send.'''
     def __init__(self):
         Base.__init__(self)
 
 class Development(Base):
-    '''Build report from development data.'''
+    '''Fetch data, build email message, and send.'''
     def __init__(self):
         Base.__init__(self)

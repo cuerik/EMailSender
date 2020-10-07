@@ -2,9 +2,6 @@
 
 '''Version 0.2
 
-Charges: $7/TB after the first 5TB on filesystems labeled "active",
-    and $3.5/TB after the first 10TB on filesystems labeled "backup".
-
 Usage: main dev|prod
 '''
 
