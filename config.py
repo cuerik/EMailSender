@@ -19,6 +19,7 @@ class Base:
     '''
     def __init__(self):
         self.smtp_secrets = config_secrets.Sending_Account
+        '''Note: set "host" to "localhost" if using EmailSender.send_localhost() method.'''
         self.smtp_config = {'host': 'smtp.colorado.edu',
                             'port': 587,
                             'login_id': self.smtp_secrets['login_id'],

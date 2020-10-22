@@ -56,7 +56,10 @@ class MessageMaker:
                          self._config.smtp_config['login_id'],
                          self.recipient_email_address,
                          m.message)
+        """Use s.send() for connecting to remote SMTP servers.
+Use s.send_localhost() for sending via the host where this script is running."""
         s.send()
+        #s.send_localhost()
 
 class MIMEMultipartEmailBuilder:
     '''Build a MIMEMultipart object with this class.
@@ -115,10 +118,16 @@ class EmailSender:
         self.conf = smtp_conf
         self.msg = message
     def send(self):
-        """'send' sends message"""
+        """sends message"""
         with smtplib.SMTP(host=self.conf['host'],port=self.conf['port']) as s:
             s.starttls()
             s.login(self.conf['login_id'],self.conf['passwd'])
+            s.sendmail(self.sender,
+                       self.recipients,
+                       str(self.msg))
+    def send_localhost(self):
+        """sends message via localhost"""
+        with smtplib.SMTP(host=self.conf['host']) as s:
             s.sendmail(self.sender,
                        self.recipients,
                        str(self.msg))
